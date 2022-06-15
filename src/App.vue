@@ -1,7 +1,7 @@
 <script setup>
 import AgoraRTM from 'agora-rtm-sdk';
 import { v4 as uuidv4 } from 'uuid';
-import { ref, onMounted, nextTick } from 'vue';
+import { ref, onMounted, nextTick, defineExpose } from 'vue';
 
 const APP_ID = '452f99a0814b44d29d9a446ec20356fc';
 const CHANNEL = 'wdj';
@@ -11,6 +11,8 @@ let text = ref('');
 let messagesRef = ref(null);
 let messages = ref([]);
 let channel;
+
+defineExpose({ messagesRef });
 
 const appendMessage = async (message) => {
   messages.value.push(message);
